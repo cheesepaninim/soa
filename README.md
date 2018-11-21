@@ -4,7 +4,7 @@
 <hr/>
 
 
-#### **usage**
+#### **usage : **
 
 > #### 1. include soa.js in your site
 ```<script src="soa.js"></script>```
@@ -32,7 +32,7 @@
 // you can write keys inside the array in two ways like 'key2' or ['key3']
 ```
 
-> ##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
+##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
 ##### boolean type
 ###### e.g.
 ```
@@ -40,7 +40,7 @@ true
 false(you don't have to specify)
 ```
 
-#### 3. samples
+> #### 3. samples
 ```
 <script>
 var users = [
