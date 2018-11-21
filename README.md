@@ -19,22 +19,26 @@
 ##### **arg1(arr) : array with object inside**
 ##### object array type;
 ###### e.g.
-###### ```[{num:1, name:'a'}, {num:2, name:'b'}, {num:3, name:'c'}]```
+```[{num:1, name:'a'}, {num:2, name:'b'}, {num:3, name:'c'}]```
 
 ##### **arg2(keys) : a key or keys that you want to sort by; applied in order from left to right**
 ##### string or array type;
 ###### e.g.
-###### ```'myKey' // sorting with a single key```
-###### ```['key1', 'key2', 'key3'] // sorting with multiple keys```
-###### ```[['key1', isDesc1(customized sorting order for key1], 'key2', ['key3']]```
-```// adjusting isDesc1 for sorting with key1 & sorting with key2, key3 with default(or as you specify(arg3)) sorting order```
-```// you can write keys inside the array in two ways like 'key2' or ['key3']```
+```
+'myKey' // sorting with a single key
+['key1', 'key2', 'key3'] // sorting with multiple keys
+[['key1', isDesc1(customized sorting order for key1], 'key2', ['key3']]
+// adjusting isDesc1 for sorting with key1 & sorting with key2, key3 with default(or as you specify(arg3)) sorting order
+// you can write keys inside the array in two ways like 'key2' or ['key3']
+```
 
 ##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
 ##### boolean type
 ###### e.g.
-###### ```true```
-###### ```false(you don't have to specify)```
+```
+true
+false(you don't have to specify)
+```
 
 #### 3. samples
 ```
@@ -52,7 +56,8 @@ var users = [
     {num: 18, projectNum: 1, job:'dsg', grade:'B'},
     {num: 7,  projectNum: 4, job:'pm',  grade:'A'}
 ]
-
+```
+```
 soa(users, 'grade')
 // sort users by key 'grade' asc
 
