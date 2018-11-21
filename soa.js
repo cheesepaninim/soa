@@ -37,13 +37,6 @@ var sortObjArr = function(a, k, d){
         else if(k[i].length == 1) k[i][1] = d
     }
 
-    // console.log('---istArr---')
-    // console.log(inser tedArr)
-    // console.log('---key---')
-    // console.log(k)
-    // console.log('---isDesc---')
-    // console.log(d)
-
 
 
     var equals = []
@@ -54,9 +47,6 @@ var sortObjArr = function(a, k, d){
         if(keyIdx !== 0 && equals.length == 0) return istArr
 
         var direction = k[keyIdx][1] ? 'desc' : 'asc'
-
-        // console.log('---direction---')
-        // console.log(direction)
 
         var cType
         var arrIdx = 0
@@ -80,7 +70,7 @@ var sortObjArr = function(a, k, d){
         }
 
 
-        // console.log('hiho!')
+
         if(cType == 'number'){
             if(!equals.length){ // 1st key
                 direction == 'asc'
@@ -118,8 +108,6 @@ var sortObjArr = function(a, k, d){
                     })
             }
             else{ // 2nd, 3rd .. keys
-                // console.log(keyIdx)
-                // console.log(numToNum)
                 for(var ntnIndex=(numToNum.length-1); ntnIndex>=0; ntnIndex--){
                     var tmpArr = istArr.splice(numToNum[ntnIndex][0])
                     var saved = tmpArr.splice(numToNum[ntnIndex][1] - numToNum[ntnIndex][0] + 1)
@@ -144,7 +132,6 @@ var sortObjArr = function(a, k, d){
         }
         else return ERR('Sorry, not supported yet')
 
-        // console.log(JSON.stringify(istArr))
 
 
         if(keyIdx == k.length-1) break
@@ -197,10 +184,6 @@ var sortObjArr = function(a, k, d){
                     }
                 }
             }
-            // console.log('---tmpNtn---')
-            // console.log(tmpNtn)
-            // console.log('---numToNum---')
-            // console.log(JSON.stringify(numToNum))
 
             var saveTmpIndex = []
             for(var tIndex=0; tIndex<tmpNtn.length; tIndex++){
@@ -210,14 +193,10 @@ var sortObjArr = function(a, k, d){
                     }
                 }
             }
-            // console.log('---saveTmpIndex---')
-            // console.log(saveTmpIndex)
             numToNum = []
             for(var i=0; i<saveTmpIndex.length; i++){
                 numToNum.push(tmpNtn[saveTmpIndex[i]])
             }
-            // console.log('---numToNum---')
-            // console.log(numToNum)
         }
 
         if(keyIdx == 0){
@@ -244,13 +223,11 @@ var sortObjArr = function(a, k, d){
                     }
                 }
             }
-            // console.log('---numToNum---')
-            // console.log(numToNum)
         }
 
     } // end of for-keyIdx
 
 
 
-    return istArr // key[i] 에 따른 정렬 필요
+    return istArr
 }
