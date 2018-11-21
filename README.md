@@ -1,15 +1,15 @@
 ## **soa**
 #### sorting object array with keys
 #### **soa** is a small simple js library for sorting object array with it's key names
-
+<hr/>
 
 
 #### **usage**
 
-#### 1. include soa.js in your site
+> #### 1. include soa.js in your site
 ```<script src="soa.js"></script>```
 
-#### 2. call soa function with arguments
+> #### 2. call soa function with arguments
 ```
 <script>
   soa(arr, key, isDesc(optional));
@@ -32,7 +32,7 @@
 // you can write keys inside the array in two ways like 'key2' or ['key3']
 ```
 
-##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
+> ##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
 ##### boolean type
 ###### e.g.
 ```
