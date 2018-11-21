@@ -1,4 +1,5 @@
 ## **soa**
+<hr/>
 #### sorting object array with keys
 #### **soa** is a small simple js library for sorting object array with it's key names
 <hr/>
@@ -28,7 +29,8 @@
 'myKey' // sorting with a single key
 ['key1', 'key2', 'key3'] // sorting with multiple keys
 [['key1', isDesc1(customized sorting order for key1], 'key2', ['key3']]
-// adjusting isDesc1 for sorting with key1 & sorting with key2, key3 with default(or as you specify(arg3)) sorting order
+// adjusting isDesc1 for sorting with key1
+// & sorting with key2, key3 with default(or as you specify(arg3)) sorting order
 // you can write keys inside the array in two ways like 'key2' or ['key3']
 ```
 
