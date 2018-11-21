@@ -26,8 +26,12 @@
 ##### string or array type;
 ###### e.g.
 ```
-'myKey' // sorting with a single key
-['key1', 'key2', 'key3'] // sorting with multiple keys
+'myKey'
+// sorting with a single key
+
+['key1', 'key2', 'key3']
+// sorting with multiple keys
+
 [['key1', isDesc1(customized sorting order for key1], 'key2', ['key3']]
 // adjusting isDesc1 for sorting with key1
 // & sorting with key2, key3 with default(or as you specify(arg3)) sorting order
@@ -39,7 +43,7 @@
 ###### e.g.
 ```
 true
-false(you don't have to specify)
+false // you don't have to specify
 ```
 
 > #### 3. samples
