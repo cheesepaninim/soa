@@ -9,7 +9,7 @@
 // [['key1', true], ['key2'], ['key3', false], ['key4', true]]
 // [['key1', false], ['key2'], ['key3', false]] , true
 
-var sortObjArr = function(a, k, d){
+var soa = function(a, k, d){
     if(typeof a !== 'object') return ERR('need array type [ ] for arg1')
     if(a.length == undefined) return ERR('need array type [ ] for arg1')
     if(a[0].length == 1)      return a
