@@ -16,12 +16,12 @@
 </script>
 ```
 
-##### *** **arg1(arr) : array with object inside** ***
+##### **arg1(arr) : array with object inside**
 ##### object array type;
 ###### e.g.
 ```[{num:1, name:'a'}, {num:2, name:'b'}, {num:3, name:'c'}]```
 
-##### *** **arg2(keys) : a key or keys that you want to sort by; applied in order from left to right** ***
+##### **arg2(keys) : a key or keys that you want to sort by; applied in order from left to right**
 ##### string or array type;
 ###### e.g.
 ```
@@ -32,7 +32,7 @@
 // you can write keys inside the array in two ways like 'key2' or ['key3']
 ```
 
-##### *** **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)** ***
+##### **arg3(isDesc) : default sorting order. (optional; default(false):asc, true:desc)**
 ##### boolean type
 ###### e.g.
 ```
