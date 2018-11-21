@@ -22,7 +22,7 @@ var sortObjArr = function(a, k, d){
     }
     if(d !== undefined && typeof d !== 'boolean') return ERR('need boolean type for arg3')
 
-    var istArr = [] // 전달받은 인자가 splice 되어서 나가는거 방지
+    var istArr = []
     for(var i=0; i<a.length; i++){
         istArr.push(a[i])
     }
@@ -40,7 +40,7 @@ var sortObjArr = function(a, k, d){
 
 
     var equals = []
-    var numToNum = []
+    var ntn = []
 
     for(var keyIdx=0; keyIdx<k.length; keyIdx++){
         if(typeof k[keyIdx][0] !== 'string') return ERR('need string type for key[i][0] to sort')
@@ -78,9 +78,9 @@ var sortObjArr = function(a, k, d){
                     : istArr.sort(function(b,a){return a[k[keyIdx][0]] - b[k[keyIdx][0]]})
             }
             else{ // 2nd, 3rd .. keys
-                for(var ntnIndex=(numToNum.length-1); ntnIndex>=0; ntnIndex--){
-                    var tmpArr = istArr.splice(numToNum[ntnIndex][0])
-                    var saved = tmpArr.splice(numToNum[ntnIndex][1] - numToNum[ntnIndex][0] + 1)
+                for(var ntnIndex=(ntn.length-1); ntnIndex>=0; ntnIndex--){
+                    var tmpArr = istArr.splice(ntn[ntnIndex][0])
+                    var saved = tmpArr.splice(ntn[ntnIndex][1] - ntn[ntnIndex][0] + 1)
                     direction == 'asc'
                         ? tmpArr.sort(function(a,b){return a[k[keyIdx][0]] - b[k[keyIdx][0]]})
                         : tmpArr.sort(function(b,a){return a[k[keyIdx][0]] - b[k[keyIdx][0]]})
@@ -108,9 +108,9 @@ var sortObjArr = function(a, k, d){
                     })
             }
             else{ // 2nd, 3rd .. keys
-                for(var ntnIndex=(numToNum.length-1); ntnIndex>=0; ntnIndex--){
-                    var tmpArr = istArr.splice(numToNum[ntnIndex][0])
-                    var saved = tmpArr.splice(numToNum[ntnIndex][1] - numToNum[ntnIndex][0] + 1)
+                for(var ntnIndex=(ntn.length-1); ntnIndex>=0; ntnIndex--){
+                    var tmpArr = istArr.splice(ntn[ntnIndex][0])
+                    var saved = tmpArr.splice(ntn[ntnIndex][1] - ntn[ntnIndex][0] + 1)
                     direction == 'asc'
                         ? tmpArr.sort(function(a,b){
                             var x = a[k[keyIdx][0]].toLowerCase()
@@ -136,7 +136,7 @@ var sortObjArr = function(a, k, d){
 
         if(keyIdx == k.length-1) break
 
-        // 아래 equals numToNum 작업들 하나로 통합 필요.. (안될수도..) ;; 이외에도 아래는 전반적으로 수정 필요..
+        // 아래 equals ntn 작업들 하나로 통합 필요.. (안될수도..) ;; 이외에도 아래는 전반적으로 수정 필요..
         var tmpEq = []
         var eqContinue = false
         for(var arrIdx=1; arrIdx<istArr.length; arrIdx++){
@@ -161,65 +161,65 @@ var sortObjArr = function(a, k, d){
 
         if(keyIdx !== 0){
             var tmpNtn = []
-            var tmpStartNum,
-                tmpEndNum,
+            var tmpSnum,
+                tmpEnum,
                 tmpIsContinue = false
             for(var tmpEqIndex=1; tmpEqIndex<tmpEq.length; tmpEqIndex++){
                 if(tmpEq[tmpEqIndex] === tmpEq[tmpEqIndex-1] + 1){
                     if(!tmpIsContinue){
-                        tmpStartNum = tmpEq[tmpEqIndex-1]
+                        tmpSnum = tmpEq[tmpEqIndex-1]
                         tmpIsContinue = true
                     }
                     if(tmpEqIndex == tmpEq.length-1){
-                        tmpEndNum = tmpEq[tmpEqIndex]
+                        tmpEnum = tmpEq[tmpEqIndex]
                         tmpIsContinue = false
-                        tmpNtn.push([tmpStartNum, tmpEndNum])
+                        tmpNtn.push([tmpSnum, tmpEnum])
                     }
                 }
                 else{
                     if(tmpIsContinue){
-                        tmpEndNum = tmpEq[tmpEqIndex-1]
+                        tmpEnum = tmpEq[tmpEqIndex-1]
                         tmpIsContinue = false
-                        tmpNtn.push([tmpStartNum, tmpEndNum])
+                        tmpNtn.push([tmpSnum, tmpEnum])
                     }
                 }
             }
 
             var saveTmpIndex = []
             for(var tIndex=0; tIndex<tmpNtn.length; tIndex++){
-                for(var ntnIndex=0; ntnIndex<numToNum.length; ntnIndex++){
-                    if(tmpNtn[tIndex][0] >= numToNum[ntnIndex][0] && tmpNtn[tIndex][0] <= numToNum[ntnIndex][1] && tmpNtn[tIndex][1] <= numToNum[ntnIndex][1]){
+                for(var ntnIndex=0; ntnIndex<ntn.length; ntnIndex++){
+                    if(tmpNtn[tIndex][0] >= ntn[ntnIndex][0] && tmpNtn[tIndex][0] <= ntn[ntnIndex][1] && tmpNtn[tIndex][1] <= ntn[ntnIndex][1]){
                         saveTmpIndex.push(tIndex)
                     }
                 }
             }
-            numToNum = []
+            ntn = []
             for(var i=0; i<saveTmpIndex.length; i++){
-                numToNum.push(tmpNtn[saveTmpIndex[i]])
+                ntn.push(tmpNtn[saveTmpIndex[i]])
             }
         }
 
         if(keyIdx == 0){
-            var startNum,
-                endNum,
+            var snum,
+                enum,
                 isContinue = false
             for(var eqIndex=1; eqIndex<equals.length; eqIndex++){
                 if(equals[eqIndex] === equals[eqIndex-1] + 1){
                     if(!isContinue){
-                        startNum = equals[eqIndex-1]
+                        snum = equals[eqIndex-1]
                         isContinue = true
                     }
                     if(eqIndex == equals.length-1){
-                        endNum = equals[eqIndex]
+                        enum = equals[eqIndex]
                         isContinue = false
-                        numToNum.push([startNum, endNum])
+                        ntn.push([snum, enum])
                     }
                 }
                 else{
                     if(isContinue){
-                        endNum = equals[eqIndex-1]
+                        enum = equals[eqIndex-1]
                         isContinue = false
-                        numToNum.push([startNum, endNum])
+                        ntn.push([snum, enum])
                     }
                 }
             }
