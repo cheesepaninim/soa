@@ -4,7 +4,7 @@
 <hr/>
 
 
-#### **usage : **
+#### **usage**
 
 > #### 1. include soa.js in your site
 ```<script src="soa.js"></script>```
