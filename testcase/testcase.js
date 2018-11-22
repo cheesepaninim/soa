@@ -1,27 +1,27 @@
-// sortObjArr(3)
-// sortObjArr('')
-// sortObjArr({a:1})
-// sortObjArr([])
-// sortObjArr([3])
-// sortObjArr([[2]])
-// sortObjArr([{}])
-// sortObjArr([{name:'a', num:1},{name:'b', num:2}], 'addr')
+// soa(3)
+// soa('')
+// soa({a:1})
+// soa([])
+// soa([3])
+// soa([[2]])
+// soa([{}])
+// soa([{name:'a', num:1},{name:'b', num:2}], 'addr')
 
-// sortObjArr([{name:'a', num:1},{name:'b', num:2}], {num:1})
-// sortObjArr([{name:'a', num:1},{name:'b', num:2}], 4)
-// sortObjArr([{name:'a', num:1},{name:'b', num:2}], ['num',''])
-// sortObjArr([{name:'a', num:5},{name:'b', num:10},{name:'c', num:7}], 'num')
-// var result0 = sortObjArr([{name:'a'},
+// soa([{name:'a', num:1},{name:'b', num:2}], {num:1})
+// soa([{name:'a', num:1},{name:'b', num:2}], 4)
+// soa([{name:'a', num:1},{name:'b', num:2}], ['num',''])
+// soa([{name:'a', num:5},{name:'b', num:10},{name:'c', num:7}], 'num')
+// var result0 = soa([{name:'a'},
 //                         {name:'b', num:38},
 //                         {name:'c', num:15},
 //                         {name:'d', num:10},
 //                         {name:'e', num:21}], 'num')
-// var result1 = sortObjArr([{name:'d'},
+// var result1 = soa([{name:'d'},
 //                         {name:'a', num:38},
 //                         {name:'f', num:15},
 //                         {name:'c', num:10},
 //                         {name:'e', num:21}], 'name')
-// var result1_2 = sortObjArr([{name:'d'},
+// var result1_2 = soa([{name:'d'},
 //                         {name:'a', num:38},
 //                         {name:'f', num:15},
 //                         {name:'c', num:10},
@@ -33,13 +33,13 @@
 //                         {name:'f', num:10},
 //                         {name:'e', num:21}] // ����
 // console.log(arg)
-// var result1_3 = sortObjArr(arg, [['name', true],['num']])
+// var result1_3 = soa(arg, [['name', true],['num']])
 // console.log(arg)
 
-// var result2 = sortObjArr([{name:'a'},{name:'b', num:21},{name:'c', num:10}], ['num'])
-// sortObjArr([{name:'a', num:'abc'},{name:'b', num:10},{name:'c', num:21}], 'num')
-// sortObjArr([{name:'a', num:1},{name:'b', num:2}], ['num'])
-// sortObjArr([
+// var result2 = soa([{name:'a'},{name:'b', num:21},{name:'c', num:10}], ['num'])
+// soa([{name:'a', num:'abc'},{name:'b', num:10},{name:'c', num:21}], 'num')
+// soa([{name:'a', num:1},{name:'b', num:2}], ['num'])
+// soa([
 //     {id:'cheese', level:'57', grade:'S+'},
 //     {id:'panini', level:'',   grade:''},
 //     {id:'ellabo', level:'99', grade:'C-'},
@@ -47,7 +47,7 @@
 //     {id:'cws1340',level:'80', grade:'B'}
 // ], 'level')
 
-// var result3 = sortObjArr([
+// var result3 = soa([
 //     {id:'cheese', level:'57', grade:'S+'},
 //     {id:'panini', level:'',   grade:''},
 //     {id:'ellabo', level:'99', grade:'C-'},
@@ -56,7 +56,7 @@
 // ], ['level', 'id'])
 // console.log(result3)
 
-// var result4 = sortObjArr([
+// var result4 = soa([
 //     {id:'cheese', level:'57', grade:'S+'},
 //     {id:'panini', level:'80', grade:''},
 //     {id:'ellabo', level:'99', grade:'C-'},
@@ -65,7 +65,7 @@
 // ], [['level', true], 'id'])
 // console.log(result4)
 
-// var result5 = sortObjArr([
+// var result5 = soa([
 //     {id:'cheese', level:24, grade:'S+'},
 //     {id:'panini', level:7,  grade:'A'},
 //     {id:'ellabo', level:99, grade:'C-'},
@@ -100,36 +100,57 @@
 //     {grade:3, classroom:'b', name:'acorn', midScore:80, finalScore:55},
 //     {grade:4, classroom:'c', name:'24601', midScore:0,  finalScore:0}
 // ]
-// var result6 = sortObjArr(students, [['grade'],['classroom'],['name'],['midScore',true]])
+// var result6 = soa(students, [['grade'],['classroom'],['name'],['midScore',true]])
 // console.log(result6)
 // console.log(students) // result6 ���� �� �迭�� �߷�����???
-// students = sortObjArr(students, [['grade',true],['finalScore',true],['midScore',true],['name'],['classroom']])
-// console.log(sortObjArr(students, [['grade',true],['finalScore',true],['midScore',true],['name'],['classroom']]))
+// students = soa(students, [['grade',true],['finalScore',true],['midScore',true],['name'],['classroom']])
+// console.log(soa(students, [['grade',true],['finalScore',true],['midScore',true],['name'],['classroom']]))
 // var users = [
-//     {num: 34, id:'', projectNum: 1, job:'dev', grade:'C'},
-//     {num: 21, id:'', projectNum: 2, job:'pl',  grade:'A'},
-//     {num: 15, id:'', projectNum: 1, job:'dsg', grade:'C'},
-//     {num: 28, id:'', projectNum: 1, job:'mkt', grade:'A'},
-//     {num: 9,  id:'', projectNum: 1, job:'dev', grade:'B'},
-//     {num: 24, id:'', projectNum: 2, job:'pl',  grade:'B'},
-//     {num: 12, id:'', projectNum: 1, job:'dsg', grade:'C'},
-//     {num: 6,  id:'', projectNum: 1, job:'dev', grade:'A'},
-//     {num: 3,  id:'', projectNum: 1, job:'mkt', grade:'C'},
-//     {num: 18, id:'', projectNum: 1, job:'dsg', grade:'B'},
-//     {num: 7,  id:'', projectNum: 4, job:'pm',  grade:'A'}
+//     {num: 34, projectNum: 1, job:'dev', grade:'C'},
+//     {num: 21, projectNum: 2, job:'pl',  grade:'A'},
+//     {num: 15, projectNum: 1, job:'dsg', grade:'C'},
+//     {num: 28, projectNum: 1, job:'mkt', grade:'A'},
+//     {num: 9,  projectNum: 1, job:'dev', grade:'B'},
+//     {num: 24, projectNum: 2, job:'pl',  grade:'B'},
+//     {num: 12, projectNum: 1, job:'dsg', grade:'C'},
+//     {num: 6,  projectNum: 1, job:'dev', grade:'A'},
+//     {num: 3,  projectNum: 1, job:'mkt', grade:'C'},
+//     {num: 18, projectNum: 1, job:'dsg', grade:'B'},
+//     {num: 7,  projectNum: 4, job:'pm',  grade:'A'}
 // ]
-// console.log(sortObjArr(users, 'projectNum')) // ok
-// console.log(sortObjArr(users, 'projectNum', true)) // ok
-// console.log(sortObjArr(users, [['projectNum', true]])) // ok
-// console.log(sortObjArr(users, 'projectNum', 'grade', 'job')) // error ok
-// console.log(sortObjArr(users, ['projectNum', 'grade', 'job'])) // ok
-// console.log(sortObjArr(users, [['projectNum', true], 'grade', 'job'])) // ok
-// console.log(sortObjArr(users, [['projectNum', true], 'grade', ['job',true]])) // ok
-// console.log(sortObjArr(users, [['projectNum', true], ['grade'], ['job',true]])) // ok
+// console.log(soa(users, 'projectNum')) // ok
+// console.log(soa(users, 'projectNum', true)) // ok
+// console.log(soa(users, [['projectNum', true]])) // ok
+// console.log(soa(users, 'projectNum', 'grade', 'job')) // error ok
+// console.log(soa(users, ['projectNum', 'grade', 'job'])) // ok
+// console.log(soa(users, [['projectNum', true], 'grade', 'job'])) // ok
+// console.log(soa(users, [['projectNum', true], 'grade', ['job',true]])) // ok
+// console.log(soa(users, [['projectNum', true], ['grade'], ['job',true]])) // ok
 
-// console.log(sortObjArr(users, 'grade'))
-// console.log(sortObjArr(users, 'grade', true))
-// console.log(sortObjArr(users, ['projectNum', 'grade']))
-// console.log(sortObjArr(users, ['projectNum', 'grade', 'num'], true))
-// console.log(sortObjArr(users, [['projectNum', true], ['grade'], ['job', false]]))
-// console.log(sortObjArr(users, [['projectNum', true], ['grade'], ['job', false]], true))
+// console.log(soa(users, 'grade'))
+// console.log(soa(users, 'grade', true))
+// console.log(soa(users, ['projectNum', 'grade']))
+// console.log(soa(users, ['projectNum', 'grade', 'num'], true))
+// console.log(soa(users, [['projectNum', true], ['grade'], ['job', false]]))
+// console.log(soa(users, [['projectNum', true], ['grade'], ['job', false]], true))
+
+// var users = [
+//     {num: 34, projectNum: 1, job:'dev', grade:'C'},
+//     {num: 21, projectNum: 2, job:'pl',  grade:'A'},
+//     {num: 15, projectNum: 1, job:'dsg', grade:'C'},
+//     {num: 28, projectNum: 1, job:'mkt', grade:'A'},
+//     {num: 9,  projectNum: 1, job:'dev', grade:'B'},
+//     {num: 24, projectNum: 2, job:'pl',  grade:'B'},
+//     {num: 12, projectNum: 1, job:'dsg', grade:'C'},
+//     {num: 6,  projectNum: 1, job:'dev', grade:'A'},
+//     {num: 3,  projectNum: 1, job:'mkt', grade:'C'},
+//     {num: 18, projectNum: 1, job:'dsg', grade:'B'},
+//     {num: 7,  projectNum: 4, job:'pm',  grade:'A'}
+// ]
+//
+// soa(users, 'grade')
+// soa(users, 'grade', true)
+// soa(users, ['projectNum', 'grade'])
+// soa(users, ['projectNum', 'grade', 'num'], true)
+// soa(users, [['projectNum', true], ['grade'], ['job', false]])
+// soa(users, [['projectNum', true], ['grade'], ['job', false]], true)

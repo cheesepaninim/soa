@@ -1,14 +1,5 @@
 /* sorting functions */
 // sort by value of object inside array
-
-// e.g.
-// 'key1'
-// 'key1', true
-// ['key1', 'key2', ...]
-// ['key1', 'key2', ...], true
-// [['key1', true], ['key2'], ['key3', false], ['key4', true]]
-// [['key1', false], ['key2'], ['key3', false]] , true
-
 var soa = function(a, k, d){
     if(typeof a !== 'object') return ERR('need array type [ ] for arg1')
     if(a.length == undefined) return ERR('need array type [ ] for arg1')
