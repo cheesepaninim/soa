@@ -1,6 +1,8 @@
 /* sorting functions */
 // sort by value of object inside array
+
 var soa = function(a, k, d){
+// types check
     if(typeof a !== 'object') return ERR('need array type [ ] for arg1')
     if(a.length == undefined) return ERR('need array type [ ] for arg1')
     if(a[0].length == 1)      return a
@@ -13,16 +15,16 @@ var soa = function(a, k, d){
     }
     if(d !== undefined && typeof d !== 'boolean') return ERR('need boolean type for arg3')
 
+// to avoid inserted array be spliced..
     var istArr = []
     for(var i=0; i<a.length; i++){
         istArr.push(a[i])
     }
-
+// key type modifing
     k = typeof k == 'string'
         ? [k]
         : k
     d = d || false
-
     for(var i=0; i<k.length; i++){
         if(typeof k[i] == 'string')   k[i] = [k[i], d]
         else if(k[i].length == 1) k[i][1] = d
@@ -32,14 +34,14 @@ var soa = function(a, k, d){
 
     var equals = []
     var ntn = []
-
+// sorting by keys
     for(var keyIdx=0; keyIdx<k.length; keyIdx++){
         if(typeof k[keyIdx][0] !== 'string') return ERR('need string type for key[i][0] to sort')
         if(keyIdx !== 0 && equals.length == 0) return istArr
 
         var direction = k[keyIdx][1] ? 'desc' : 'asc'
 
-        var cType
+        var cType // typeof current value for the key
         var arrIdx = 0
         var getValueType = function(){
             if(istArr[arrIdx][k[keyIdx][0]] == undefined){
@@ -127,7 +129,7 @@ var soa = function(a, k, d){
 
         if(keyIdx == k.length-1) break
 
-        // 아래 equals ntn 작업들 하나로 통합 필요.. (안될수도..) ;; 이외에도 아래는 전반적으로 수정 필요..
+// find out index of array values to sort after sorting
         var tmpEq = []
         var eqContinue = false
         for(var arrIdx=1; arrIdx<istArr.length; arrIdx++){
@@ -150,6 +152,7 @@ var soa = function(a, k, d){
             }
         }
 
+// need to organize.. from here
         if(keyIdx !== 0){
             var tmpNtn = []
             var tmpSnum,
@@ -215,6 +218,7 @@ var soa = function(a, k, d){
                 }
             }
         }
+// need to organize.. to here
 
     } // end of for-keyIdx
 
