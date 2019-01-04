@@ -16,10 +16,7 @@ var soa = function(a, k, d){
     if(d !== undefined && typeof d !== 'boolean') return ERR('need boolean type for arg3')
 
 // to avoid inserted array be spliced..
-    var istArr = []
-    for(var i=0; i<a.length; i++){
-        istArr.push(a[i])
-    }
+    var istArr = [...a]
 // key type modifing
     k = typeof k == 'string'
         ? [k]
